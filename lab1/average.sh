@@ -1,9 +1,24 @@
-#!/bin/sh
+#!/bin/bash
+
 sum=0
-for((i = 1; i <= $#; i++))
-do
-sum=$[ sum + ${i} ]
-done
-midle=$[ sum / $# ]
-echo $#
-echo $midle
+
+if [ $# -eq 0 ]
+then
+	count=0
+	while read LINE 
+	do 
+ 		count=$[count + 1]
+ 		sum=$[ sum + $LINE ]
+	done 
+	midle=$[ sum / $count ]
+	echo $count
+	echo $midle
+else
+	for params in $@
+	do
+ 		sum=$[ sum + $params ]
+	done
+	midle=$[ sum / $# ]
+	echo $#
+	echo $midle
+fi
