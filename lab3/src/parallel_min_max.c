@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
                 break;
             case 2:
                 pnum = atoi(optarg);
-                array_size = atoi(optarg);
+                //array_size = atoi(optarg);
                 if (array_size <= 0)
                 {
                     printf("pnum is a positive number\n");
@@ -96,6 +96,12 @@ int main(int argc, char** argv) {
 
     int* array = malloc(sizeof(int) * array_size);
     GenerateArray(array, array_size, seed);
+
+		/*int i;
+		for(i = 0; i< array_size; i++)
+		printf("%d  ",array[i]);
+		printf("\n");*/
+
     int active_child_processes = 0;
 
     struct timeval start_time;
