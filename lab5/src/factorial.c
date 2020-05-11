@@ -27,16 +27,17 @@ pthread_mutex_t mut = PTHREAD_MUTEX_INITIALIZER;
 
 void factorial(void *segments) {		
 	struct Segment *segment = (struct Segment *)segments;
+int temp_result = 1;
 	for (int i = (*segment).begin; i <= (*segment).end; i++)
 	{
-		pthread_mutex_lock(&mut);
-
-		result *= ((i % (*segment).mod) == 0 ? 1 : i);
-sleep(1);
-//printf("current pid:%d \n",(*segment).begin);
-		//printf("%d\n",result);
-		pthread_mutex_unlock(&mut);
+		temp_result *= ((i % (*segment).mod) == 0 ? 1 : i);
+		sleep(1);
+		//printf("current pid:%d \n",(*segment).begin);
+		//printf("%d\n",temp_result);
  	}
+pthread_mutex_lock(&mut);
+result *= temp_result;
+pthread_mutex_unlock(&mut);
 }
 
 int main(int argc, char** argv) {
