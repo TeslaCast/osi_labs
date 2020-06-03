@@ -16,11 +16,6 @@
 
 #include <errno.h>
 #include <getopt.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <netinet/ip.h>
-#include <sys/socket.h>
-#include <sys/types.h>
 
 #include <stdbool.h>
 
