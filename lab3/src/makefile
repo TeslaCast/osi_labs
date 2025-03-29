@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=-I.
 
+
 all: sequential_min_max parallel_min_max exec_prog
 
 sequential_min_max: utils.o find_min_max.o utils.h find_min_max.h
